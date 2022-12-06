@@ -30,4 +30,31 @@ public class AgendaController {
 		resposta.setMensagem("Cadastrado com sucesso!");
 		return resposta;
 	}
+	
+	@ResponseBody
+	@RequestMapping (method = RequestMethod.POST, path = "/estatistica/resumida")
+	public ContatoResponseDTO resumir ( @RequestBody ContatoDTO request) {
+		
+		ContatoResponseDTO resposta = new ContatoResponseDTO();
+		resposta.setCaracteres(request.getNome().length());
+		StringBuilder strb = new StringBuilder(request.getNome());
+		String nome = request.getNome();
+		resposta.setNome_invertido(nome = strb.reverse().toString());
+		return resposta;
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping (method = RequestMethod.POST, path = "/estatistica/completa")
+	public ContatoResponseDTO completo ( @RequestBody ContatoDTO request) {
+		
+		ContatoResponseDTO resposta = new ContatoResponseDTO();
+		resposta.setCaracteres(request.getNome().length());
+		StringBuilder strb = new StringBuilder(request.getNome());
+		String nome = request.getNome();
+		resposta.setNome_invertido(nome = strb.reverse().toString());
+		resposta.setDias_vivivos(request.getIdade()*365);
+		return resposta;
+		
+	}
 }
