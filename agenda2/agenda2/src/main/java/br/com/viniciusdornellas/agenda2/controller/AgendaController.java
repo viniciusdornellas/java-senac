@@ -1,5 +1,6 @@
 package br.com.viniciusdornellas.agenda2.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,10 +9,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.viniciusdornellas.agenda2.dto.ContatoDTO;
 import br.com.viniciusdornellas.agenda2.dto.ContatoResponseDTO;
+import br.com.viniciusdornellas.agenda2.negocio.Estatistica;
 
 @Controller
 @RequestMapping(path = "/agenda")
 public class AgendaController {
+	
+	@Autowired
+	private Estatistica est;
 
 	@ResponseBody 
 	@RequestMapping( method = RequestMethod.POST, path = "/cadastrar" ) 
@@ -48,11 +53,10 @@ public class AgendaController {
 	@RequestMapping (method = RequestMethod.POST, path = "/estatistica/completa")
 	public ContatoResponseDTO completo ( @RequestBody ContatoDTO request) {
 		
+
 		ContatoResponseDTO resposta = new ContatoResponseDTO();
 		resposta.setCaracteres(request.getNome().length());
-		StringBuilder strb = new StringBuilder(request.getNome());
-		String nome = request.getNome();
-		resposta.setNome_invertido(nome = strb.reverse().toString());
+		resposta.setNome_invertido(est.reverse(request.getNome()));
 		resposta.setDias_vivivos(request.getIdade()*365);
 		return resposta;
 		
