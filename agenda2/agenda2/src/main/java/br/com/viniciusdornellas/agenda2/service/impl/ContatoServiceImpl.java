@@ -28,7 +28,35 @@ public class ContatoServiceImpl implements IContatoService{
 		// TODO Auto-generated method stub
 		System.out.println("Cadastrado com sucesso!");
 		this.contatos.add(contato);
-		System.out.println(contatos);
+	}
+
+	@Override
+	public List<ContatoDTO> obterTodos() {
+		// TODO Auto-generated method stub
+		return contatos;
+	}
+
+	@Override
+	public ContatoDTO obter(String nome) {
+		// TODO Auto-generated method stub
+		for (int i = 0 ; i < this.contatos.size(); i++){
+			if (contatos.get(i).getNome().equals(nome)) {
+				return contatos.get(i);
+			}
+		}		
+		return null;
+	}
+
+	@Override
+	public void atualizar(ContatoDTO contato) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void excluir(ContatoDTO contato) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
