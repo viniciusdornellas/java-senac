@@ -25,7 +25,7 @@ public class ContatoController {
 	private final IContatoService service;
 	
 	@Autowired
-	public ContatoController(@Qualifier("ContatoServiceImpl") IContatoService service) {
+	public ContatoController(@Qualifier("H2") IContatoService service) {
 		this.service = service;
 	}
 
