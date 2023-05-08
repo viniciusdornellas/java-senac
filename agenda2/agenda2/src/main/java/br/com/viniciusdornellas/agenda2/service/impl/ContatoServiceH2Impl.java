@@ -38,7 +38,7 @@ public class ContatoServiceH2Impl implements IContatoService{
 	@Override
 	public ContatoDTO obter(String nome) {
 		// TODO Auto-generated method stub
-		var entidade = repository.findById()
+		//var entidade = repository.findById();
 		return null;
 	}
 

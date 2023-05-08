@@ -5,7 +5,19 @@ public class ContatoDTO {
 	private String nome;
 	private Long idade;
 	private double altura;
+	private EnderecoDTO endereco;
 	
+	
+	
+	
+	public EnderecoDTO getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(EnderecoDTO endereco) {
+		this.endereco = endereco;
+	}
+
 	public ContatoDTO() {
 		super();
 	}

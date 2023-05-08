@@ -3,6 +3,7 @@ package br.com.viniciusdornellas.agenda2.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.web.client.RestTemplate;
 
 import br.com.viniciusdornellas.agenda2.negocio.Estatistica;
 
@@ -11,8 +12,8 @@ public class Config {
 	
 	@Primary
 	@Bean
-	public Estatistica getEstatistica() {
+	public RestTemplate getRestTemplate() {
 		
-		return new Estatistica();
+		return new RestTemplate();
 	}
 }
